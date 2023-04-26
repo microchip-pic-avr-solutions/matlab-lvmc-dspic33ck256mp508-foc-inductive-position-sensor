@@ -20,9 +20,6 @@ Ts_speed        = 30*Ts;        %Sec        // Sample time for speed controller
 %% Set data type for controller & code-gen
 dataType = fixdt(1,16,14);    % Fixed point code-generation
 dataType2 = fixdt(1,16,12);    % Fixed point code-generation
-Typecast_BEMF = fixdt(1,16,10);
-Typecast_ci = fixdt(1,16,11);
-Typecast_di = fixdt(1,16,10);
 
 %% System Parameters
 % Set motor parameters
@@ -71,22 +68,3 @@ PU_System = mcb_SetPUSystem(pmsm,inverter);
 %% Controller design // Get ballpark values!
 % Get PI Gains
 PI_params = mcb.internal.SetControllerParameters(pmsm,inverter,PU_System,T_pwm,Ts,Ts_speed);
-
-%Updating delays for simulation
-PI_params.delay_Currents  = int32(Ts/Ts_simulink);
-PI_params.delay_Position  = int32(Ts/Ts_simulink);
-PI_params.delay_Speed     = int32(Ts_speed/Ts_simulink);
-PI_params.delay_Speed1    = (PI_params.delay_IIR + 0.5*Ts)/Ts_speed;
-
-%% Open loop reference values
-T_Ref_openLoop          = 0.2;                    % Sec // Time for open-loop start-up
-Speed_Ref_openLoop      = 300;                  % RPM // Speed referene for open-loop start-up
-Iq_Ref_openLoop         = 1;                 % A   // Iq referene for open-loop start-up
-
-%% Gain Calculation
-T = Ts*2;
-k = (pmsm.Ke/sqrt(3))*2;
-num = (k*(1 + (pmsm.Lav + pmsm.Rs*T)/pmsm.Lav));
-den = (-pmsm.Rs + 4*(pmsm.Lav + pmsm.Rs*T)/T + pmsm.Rs*(pmsm.Lav + pmsm.Rs*T)/pmsm.Lav);
-phi=num/den;
-LG= k/phi;
