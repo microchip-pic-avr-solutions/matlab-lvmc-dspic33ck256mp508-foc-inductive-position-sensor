@@ -1,6 +1,6 @@
 ![image](images/microchip.jpg) 
 
-## %repoDescritpion%
+## matlab lvmc dspic33ck256mp508 foc inductive position sensor
 
 Board Image if any.
 
