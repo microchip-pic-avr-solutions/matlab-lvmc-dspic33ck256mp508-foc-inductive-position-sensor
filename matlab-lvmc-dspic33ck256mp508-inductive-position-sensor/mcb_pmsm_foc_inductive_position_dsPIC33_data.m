@@ -42,6 +42,10 @@ pmsm.N_max  = 2500;             %rpm        // Max speed
 pmsm.FluxPM     = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60); %PM flux computed from Ke
 pmsm.T_rated    = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;   %Get T_rated from I_rated
 
+%% Inductive Position Sensor offset parameters
+sine.offset = 7760 ;
+cosine.offset = 7848 ;
+
 %% Inverter parameters
 
 inverter.model         = 'LVMC';         % 		// Manufacturer Model Number
