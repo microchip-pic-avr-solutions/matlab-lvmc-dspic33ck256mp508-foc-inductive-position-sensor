@@ -10,7 +10,7 @@
       "shortDescription":"MATLAB-Simulink model for Inductive position sensor Based FOC using LVMC",
       "simulationTool":{
          "name":"MATLAB/Simulink",
-         "semverRange":">=2022"
+         "semverRange":">=2023"
       },
 	  "addonPackages":[
 				"MATLAB add on packages",
