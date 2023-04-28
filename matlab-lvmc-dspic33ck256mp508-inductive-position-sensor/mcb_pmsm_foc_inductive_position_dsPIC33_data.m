@@ -72,3 +72,9 @@ PU_System = mcb_SetPUSystem(pmsm,inverter);
 %% Controller design // Get ballpark values!
 % Get PI Gains
 PI_params = mcb.internal.SetControllerParameters(pmsm,inverter,PU_System,T_pwm,Ts,Ts_speed);
+
+%Updating delays for simulation
+PI_params.delay_Currents    = int32(Ts/Ts_simulink);
+PI_params.delay_Position    = int32(Ts/Ts_simulink);
+PI_params.delay_Speed       = int32(Ts_speed/Ts_simulink);
+PI_params.delay_Speed1       = (PI_params.delay_IIR + 0.5*Ts)/Ts_speed;
