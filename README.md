@@ -28,7 +28,7 @@ This document describes the setup requirements for running the LX34050 inductive
 - dsPIC33CK Low Voltage Motor Control (LVMC) Development Board ([DM330031](https://www.microchip.com/en-us/development-tool/DM330031))
 - 24V Power Supply ([AC002013](https://www.microchipdirect.com/dev-tools/AC002013)) 
 - 24V, 3-Phase Brushless DC Permanent Magnet Hurst Motor ([AC300020](https://www.microchip.com/en-us/development-tool/AC300020))
-- LX34050 Static Sensor Board
+- [LX34050](https://www.microchip.com/en-us/product/LX34050) Static Sensor Board
 - Adapter Board 
 - Target Conductor
 
@@ -84,45 +84,50 @@ This document describes the setup requirements for running the LX34050 inductive
       <img  src="images/simfilepic.png"></p>
     </p>
 
-5.	<p style='text-align: justify;'>This opens the FOC Simulink model as shown below.
+5.	<p style='text-align: justify;'>This opens the FOC Simulink model as shown below. Click on the <b>"Run"</b> icon to start the simulation.
 
     <p align="left">
       <img  src="images/dem5.png"></p>
     </p>
+6.	<p style='text-align: justify;'>To plot the simulation result, <b>Data Inspector</b> is used (refer to figure below). To observe the additional signals, log them as required. Alternatively, normal Simulink Scope can be used to plot the signals.
 
-6.	<p style='text-align: justify;'>From this Simulink model an MPLAB X project can be generated, and it can be used to run the PMSM motor using LVMC board. <p style='text-align: justify;'>To generate the code from the Simulink model, go to the <b>"MICROCHIP"</b> tab, and enable the tabs shown in the figure below. 
+    <p align="left">
+      <img  src="images/dem6.png"></p>
+    </p>
+    
+7.	<p style='text-align: justify;'>From this Simulink model an MPLAB X project can be generated, and it can be used to run the PMSM motor using LVMC board. <p style='text-align: justify;'>To generate the code from the Simulink model, go to the <b>"MICROCHIP"</b> tab, and enable the tabs shown in the figure below. 
 
     <p align="left">
       <img  src="images/dem7.png"></p>
     </p>
 
-7.	<p style='text-align: justify;'>	To generate the code and run the motor, click on <b>‘Build Model’ or ‘Clean Build Model’</b> option under the <b>“Microchip”</b> tab. This will generate the MPLAB X project from the Simulink model and program the dsPIC33CK256MP508 device.
+8.	<p style='text-align: justify;'>	To generate the code and run the motor, click on <b>‘Build Model’ or ‘Clean Build Model’</b> option under the <b>“Microchip”</b> tab. This will generate the MPLAB X project from the Simulink model and program the dsPIC33CK256MP508 device.
 
     <p align="left">
       <img  src="images/dem8.png"></p>
     </p>
 
-8.	<p style='text-align: justify;'>After completing the process, the <b>‘Operation Succeeded’</b> message will be displayed on the <b>‘Diagnostics Viewer’</b>.
+9.	<p style='text-align: justify;'>After completing the process, the <b>‘Operation Succeeded’</b> message will be displayed on the <b>‘Diagnostics Viewer’</b>.
 
     <p align="left">
       <img  src="images/dem9.png"></p>
     </p>
 
-9.	<p style='text-align: justify;'>If the device is successfully programmed, <b>LED- LD10 and LD11</b> will be blinking.
+10.	<p style='text-align: justify;'>If the device is successfully programmed, <b>LED- LD10 and LD11</b> will be blinking.
 
-10.	<p style='text-align: justify;'> To Run the motor, press the push button <b>SW1</b>.
+11.	<p style='text-align: justify;'> To Run the motor, press the push button <b>SW1</b>.
 
     <p align="left">
       <img  src="images/dem11.png"></p> 
     </p>
 
-11.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>).
+12.	The motor speed can be varied using the potentiometer (labeled <b>“POT1”</b>).
 
     <p align="left">
       <img  src="images/dem12.png"></p>
     </p>
 
-12.	Press the push button <b>SW1</b> to stop the motor.
+13.	Press the push button <b>SW1</b> to stop the motor.
 
     <p align="left">
       <img  src="images/dem13.png"></p>
@@ -136,7 +141,7 @@ This document describes the setup requirements for running the LX34050 inductive
       <img  src="images/host1.png"></p>
     </p>
 
-2. Ensure that the FOC model is programmed and running as described under section ["4. Basic Demonstration"](#4-basic-demonstration) by following steps 1 through 12.
+2. Ensure that the FOC model is programmed and running as described under section ["4. Basic Demonstration"](#4-basic-demonstration) by following steps 1 through 13.
 
 3. <p style='text-align: justify;'>Open the MCB Host model and double click on the <b>“Serial Setup”</b> block. Then select the appropriate COM port connected to the hardware from the drop-down menu and set the baud rate as 921659. Please note that the same baud rate is required to be chosen in the FOC model (the baud rate can be viewed on the <b>“UART Configuration”</b> block in the <b>“LVMC Board Template”</b>).
 
